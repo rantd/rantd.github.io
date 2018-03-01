@@ -1,20 +1,17 @@
-title: My page  # your title
-author: Tan Vu # your name
-description: Just have some fun here # your description
-avatar: /images/avatar.png # change avatar
+# Build settings
 
-# Build Settings
 markdown: kramdown
-highlighter: rouge
+permalink: none
+plugins:             [jekyll-sitemap, jekyll-feed,  jekyll-seo-tag]
 
-# Pagination
-paginate: 5
-paginate_path: "/page:num/"
-gems: [jekyll-paginate]
+port: 4000
 
-# Comments
-# disqus:
-#   shortname: xxxx-xxxxx-xxx   # your disqus shortname
+sass:
+  sass_dir: assets/css
+  style: :nested
 
-# Google Analytics
-# google_analytics: xx-xxxxxxxx-1  # your google analytics
+# Customise atom feed settings (this is where Jekyll-Feed gets configuration information)
+
+title:		           "Portfolio Jekyll Theme"
+description:	       "Powered by Jekyll and GitHub Pages"
+author:              "Paul Le"
