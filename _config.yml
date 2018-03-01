@@ -1,94 +1,68 @@
-# Build settings
-# Gems
-gems: 
-- jekyll-paginate
-- jekyll-feed
+# Outputting
+permalink: /:categories/:year/:month/:day/:title.html
 
-# url is the full website URL
-# baseurl is the website's URL without the hostname
-# If you are hosting it on Github for some project with name 'projectname', then the url and baseurl should look like:
-#url: "http://username.github.io/projectname"
-#baseurl: "/projectname"
-url: ""
-enforce_ssl: ""
-baseurl: "/jekyllBasic"
+# Conversion
+markdown:         kramdown
+highlighter:      rouge
+excerpt_separator: <!--more-->
 
-# Title of website
-title: Project Name
+# Config for your profile.
+title:            friday-theme.github.io  # Site title
+name:             John Smith              # Your name
+avatar:           /theme/img/avatar.jpg   # Path to an avatar image
 
-#Default keywords (used if no keywords are specified on a page basis)
-keywords: test1, test2, etc
+# The theme uses the baseurl throughout, which is useful for running the entire
+# site under a subdir, like for this GitHub Pages deployment as a project site.
+baseurl: "/friday-theme"
 
-# Short description of your site
-desc: Sample Description
+# Add a directory to hold misc pages, just to keep the root directory clean.
+include: ["_pages", "_portfolio"]
 
-# --- Navigation bar options --- #
+# Turn the projects into a collection.
+collections:
+  projects:
+    output: true
+    title: Projects
+    permalink: /:collection/:name.html
+  portfolio:
+    output: true
+    title: portfolio
+    permalink: /:collection/:name.html
 
-# Image to show in the navigation bar - image must be a square (width = height)
-# Remove this parameter if you don't want an image in the navbar
-avatar: "/img/avatar.jpg"
-
-# List of links in the navigation bar
-nav-links:
-  Home: ""
-  About Me: "aboutme"
-  Contact: "contact"  
-  
-# --- Footer options --- #
-
-# If the values are empty, they are ignored 
-profile:
-  name: Babji Chetty
-  email: Your-Email
-  facebook: your-fb-id
-  github: your-github-id 
-  twitter: your-twitter-id
-  linkedin: your-linkedin-id
-  stackoverflow: your-stackoverflow-id
-
-# To display link in the footer section
-pretty-url: "bchetty.com"
-
-# --- Misc --- #
-
-# Your Disqus profile (shortname) settings
-disqus: "Your-Disqus-Id"
-
-# Google Analytics Settings
-google_analytics: "Your-GA-Id"
-
-# Set these options as you need (For more information, check Jekyll's site)
-timezone: "Europe/Berlin"
-markdown: kramdown
-#highlighter: rouge
-kramdown:
-  input: GFM
-  syntax_highlighter: rouge
-permalink: /blog/:title
-paginate: 5
-
-# Default YAML values (more information on Jekyll's site)
 defaults:
+# Turn the profile sidebar on for all pages by default, except for the
+# collections, where it is off and replaced by useful things on the sidebar.
+# To override this one a page, use
+#    show_profile: false
+# to hide the profile.
   -
     scope:
       path: ""
-      type: "posts"
     values:
-      comments: true  # add comments to all blog posts
+      show_profile: true
   -
     scope:
-      path: "" # all files
+      path: "_posts"
     values:
-      layout: "default"
-      show-avatar: true
+      show_profile: false
+      layout: defaults/post
+  -
+    scope:
+      path: "_portfolio"
+    values:
+      show_profile: false
+      layout: defaults/portfolio
+  -
+    scope:
+      path: "_projects"
+    values:
+      show_profile: false
+      layout: defaults/project
+  -
+    scope:
+      path: "list"
+    values:
+      show_profile: false
+      layout: defaults/list
 
-# Exclude these files from production site
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - LICENSE
-  - README.md
-  - CNAME
 
-created-by: Babji, Chetty
-creator-url: https://bchetty.com
