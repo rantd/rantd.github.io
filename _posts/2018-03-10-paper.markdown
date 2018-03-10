@@ -1,0 +1,40 @@
+---
+layout: post
+title:  "Riemannian Geometry in Thermodynamic Fluctuation Theory"
+date:   2018-03-10 02:26:14 +0900
+categories: jekyll update
+---
+
+This post is a summary about Riemannian geometry in Thermodynamic Fluctuation Theory, which is extracted from the following paper:
+
+```
+George Ruppeiner, Riemannian geometry in thermodynamic fluctuation theory, Reviews of Modern Physics, Vol. 67, No. 3, 1995
+```
+
+### Riemannian Geometry
+We consider a two-dimensional Riemannian geometry consisting of two elements:
+* a two-dimensional manifold: a set of points parametrized smoothly by two coordinates $$x=(x^0,x^1)$$.
+* a rule for distance $$\Delta l$$ between each pair of neighboring points with coordinate differences $\Delta x^{\alpha}$, which is expressed as a quadratic form $$(\Delta l)^2=\sum_{\mu,v=0}^1g_{\mu v}(x)\Delta x^{\mu}\Delta x^{v}$$. A manifold with a rule for distance in the previous form is called a _Riemannian manifold_.
+
+Depending on the explicit form of $$g_{\mu v}(x)$$, we can obtain the different manifolds. For instance, if
+
+$$
+g(x)=
+\begin{pmatrix}
+1 & 0\\
+0 & 1
+\end{pmatrix},
+$$
+
+then the manifold is a Euclidean plane which has line element $$(\Delta l)^2=(\Delta x^0)^2+(\Delta x^1)^2$$.
+
+```cpp
+#include <algorithm>
+int main(int argc, char const *argv[]) {
+    std::cout << "Hello world" << std::endl;
+    for (size_t i = 0; i < count; i++) {
+        /* code */
+    }
+    return 0;
+}
+```

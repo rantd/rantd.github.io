@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="http://localhost:4000/feed.xml" rel="self" type="application/atom+xml" /><link href="http://localhost:4000/" rel="alternate" type="text/html" /><updated>2018-03-11T04:27:48+09:00</updated><id>http://localhost:4000/</id><title type="html">rantd</title><subtitle>A personal blog for small things.</subtitle><author><name>rantd</name></author><entry><title type="html">Riemannian Geometry in Thermodynamic Fluctuation Theory</title><link href="http://localhost:4000/jekyll/update/2018/03/10/paper.html" rel="alternate" type="text/html" title="Riemannian Geometry in Thermodynamic Fluctuation Theory" /><published>2018-03-10T02:26:14+09:00</published><updated>2018-03-10T02:26:14+09:00</updated><id>http://localhost:4000/jekyll/update/2018/03/10/paper</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/03/10/paper.html">&lt;p&gt;This post is a summary about Riemannian geometry in Thermodynamic Fluctuation Theory, which is extracted from the following paper:&lt;/p&gt;
+
+&lt;div class=&quot;highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;George Ruppeiner, Riemannian geometry in thermodynamic fluctuation theory, Reviews of Modern Physics, Vol. 67, No. 3, 1995
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
+
+&lt;h3 id=&quot;riemannian-geometry&quot;&gt;Riemannian Geometry&lt;/h3&gt;
+&lt;p&gt;We consider a two-dimensional Riemannian geometry consisting of two elements:&lt;/p&gt;
+&lt;ul&gt;
+  &lt;li&gt;a two-dimensional manifold: a set of points parametrized smoothly by two coordinates &lt;script type=&quot;math/tex&quot;&gt;x=(x^0,x^1)&lt;/script&gt;.&lt;/li&gt;
+  &lt;li&gt;a rule for distance &lt;script type=&quot;math/tex&quot;&gt;\Delta l&lt;/script&gt; between each pair of neighboring points with coordinate differences $\Delta x^{\alpha}$, which is expressed as a quadratic form &lt;script type=&quot;math/tex&quot;&gt;(\Delta l)^2=\sum_{\mu,v=0}^1g_{\mu v}(x)\Delta x^{\mu}\Delta x^{v}&lt;/script&gt;. A manifold with a rule for distance in the previous form is called a &lt;em&gt;Riemannian manifold&lt;/em&gt;.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Depending on the explicit form of &lt;script type=&quot;math/tex&quot;&gt;g_{\mu v}(x)&lt;/script&gt;, we can obtain the different manifolds. For instance, if&lt;/p&gt;
+
+&lt;script type=&quot;math/tex; mode=display&quot;&gt;% &lt;![CDATA[
+g(x)=
+\begin{pmatrix}
+1 &amp; 0\\
+0 &amp; 1
+\end{pmatrix}, %]]&gt;&lt;/script&gt;
+
+&lt;p&gt;then the manifold is a Euclidean plane which has line element &lt;script type=&quot;math/tex&quot;&gt;(\Delta l)^2=(\Delta x^0)^2+(\Delta x^1)^2&lt;/script&gt;.&lt;/p&gt;
+
+&lt;div class=&quot;language-cpp highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;cp&quot;&gt;#include &amp;lt;algorithm&amp;gt;
+&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;main&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;int&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;argc&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kt&quot;&gt;char&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;const&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;*&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;argv&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[])&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;cout&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;s&quot;&gt;&quot;Hello world&quot;&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;std&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;::&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;endl&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;for&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kt&quot;&gt;size_t&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;&amp;lt;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;count&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;i&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;++&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;cm&quot;&gt;/* code */&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+    &lt;span class=&quot;k&quot;&gt;return&lt;/span&gt; &lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;}&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;</content><author><name>rantd</name></author><summary type="html">This post is a summary about Riemannian geometry in Thermodynamic Fluctuation Theory, which is extracted from the following paper:</summary></entry><entry><title type="html">Welcome to Jekyll!</title><link href="http://localhost:4000/jekyll/update/2018/03/04/welcome-to-jekyll.html" rel="alternate" type="text/html" title="Welcome to Jekyll!" /><published>2018-03-04T15:09:03+09:00</published><updated>2018-03-04T15:09:03+09:00</updated><id>http://localhost:4000/jekyll/update/2018/03/04/welcome-to-jekyll</id><content type="html" xml:base="http://localhost:4000/jekyll/update/2018/03/04/welcome-to-jekyll.html">&lt;p&gt;You’ll find this post in your &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run &lt;code class=&quot;highlighter-rouge&quot;&gt;jekyll serve&lt;/code&gt;, which launches a web server and auto-regenerates your site when a file is updated.&lt;/p&gt;
+
+&lt;p&gt;Test
+&lt;script type=&quot;math/tex&quot;&gt;% &lt;![CDATA[
+\begin{align*}
+0&amp;=\langle\phi|\mathcal{H}(a^{+},a)e^{ca^{+}}|0\rangle\\
+&amp;=\langle\phi|e^{ca^{+}}\mathcal{H}(a^{+},a+c)|0\rangle\\
+&amp;=e^{c\phi^*}\langle\phi|\mathcal{H}(a^{+},a+c)|0\rangle\\
+&amp;=e^{c\phi^*}\langle\phi|\mathcal{H}(\phi^*,c)|0\rangle\\
+&amp;=e^{c\phi^*}\mathcal{H}(\phi^*,c)\langle\phi|0\rangle\\
+\therefore 0&amp;=\mathcal{H}(\phi^*,c),\forall~\phi\in\mathbb{C}.
+\end{align*} %]]&gt;&lt;/script&gt;&lt;/p&gt;
+
+&lt;p&gt;To add new posts, simply add a file in the &lt;code class=&quot;highlighter-rouge&quot;&gt;_posts&lt;/code&gt; directory that follows the convention &lt;code class=&quot;highlighter-rouge&quot;&gt;YYYY-MM-DD-name-of-post.ext&lt;/code&gt; and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.&lt;/p&gt;
+
+&lt;p&gt;Jekyll also offers powerful support for code snippets:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-ruby&quot; data-lang=&quot;ruby&quot;&gt;&lt;span class=&quot;k&quot;&gt;def&lt;/span&gt; &lt;span class=&quot;nf&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+  &lt;span class=&quot;nb&quot;&gt;puts&lt;/span&gt; &lt;span class=&quot;s2&quot;&gt;&quot;Hi, &lt;/span&gt;&lt;span class=&quot;si&quot;&gt;#{&lt;/span&gt;&lt;span class=&quot;nb&quot;&gt;name&lt;/span&gt;&lt;span class=&quot;si&quot;&gt;}&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&quot;&lt;/span&gt;
+&lt;span class=&quot;k&quot;&gt;end&lt;/span&gt;
+&lt;span class=&quot;n&quot;&gt;print_hi&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s1&quot;&gt;'Tom'&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt;
+&lt;span class=&quot;c1&quot;&gt;#=&amp;gt; prints 'Hi, Tom' to STDOUT.&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Check out the &lt;a href=&quot;https://jekyllrb.com/docs/home&quot;&gt;Jekyll docs&lt;/a&gt; for more info on how to get the most out of Jekyll. File all bugs/feature requests at &lt;a href=&quot;https://github.com/jekyll/jekyll&quot;&gt;Jekyll’s GitHub repo&lt;/a&gt;. If you have questions, you can ask them on &lt;a href=&quot;https://talk.jekyllrb.com/&quot;&gt;Jekyll Talk&lt;/a&gt;.&lt;/p&gt;</content><author><name>rantd</name></author><summary type="html">You’ll find this post in your _posts directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run jekyll serve, which launches a web server and auto-regenerates your site when a file is updated.</summary></entry></feed>

@@ -6,6 +6,18 @@ categories: jekyll update
 ---
 You’ll find this post in your `_posts` directory. Go ahead and edit it and re-build the site to see your changes. You can rebuild the site in many different ways, but the most common way is to run `jekyll serve`, which launches a web server and auto-regenerates your site when a file is updated.
 
+Test
+$$
+\begin{align*}
+0&=\langle\phi|\mathcal{H}(a^{+},a)e^{ca^{+}}|0\rangle\\
+&=\langle\phi|e^{ca^{+}}\mathcal{H}(a^{+},a+c)|0\rangle\\
+&=e^{c\phi^*}\langle\phi|\mathcal{H}(a^{+},a+c)|0\rangle\\
+&=e^{c\phi^*}\langle\phi|\mathcal{H}(\phi^*,c)|0\rangle\\
+&=e^{c\phi^*}\mathcal{H}(\phi^*,c)\langle\phi|0\rangle\\
+\therefore 0&=\mathcal{H}(\phi^*,c),\forall~\phi\in\mathbb{C}.
+\end{align*}
+$$
+
 To add new posts, simply add a file in the `_posts` directory that follows the convention `YYYY-MM-DD-name-of-post.ext` and includes the necessary front matter. Take a look at the source for this post to get an idea about how it works.
 
 Jekyll also offers powerful support for code snippets:
